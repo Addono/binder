@@ -3,16 +3,7 @@
     <div class="navbar-translate">
       <a [routerLink]="['/user-profile']" class="navbar-brand">Welcome <span
         class="hero-intro">{{current_user['userName']}}</span></a>
-      <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse"
-              data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-              aria-label="Toggle navigation">
-        <span class="navbar-toggler-bar"></span>
-        <span class="navbar-toggler-bar"></span>
-        <span class="navbar-toggler-bar"></span>
-      </button>
-    </div>
-    <div class="navbar-collapse" id="navbarToggler">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav float-right">
         <li class="nav-item">
           <a rel="tooltip" ngbTooltip="We know you're a cheater." data-placement="bottom"
              title="We know you're a cheater." (click)="matchme()" class="btn btn-danger btn-round" style="color: #fff">Instant-Match</a>
@@ -95,7 +86,7 @@
     <div class="row">
       <div class="mx-auto">
         <div class="card" style="width: 25rem;" *ngIf="card_switcher('match')">
-          <img class="card-img-top" id="card-img" [src]="'src/assets/img/memes/love.jpg'" alt="Card image cap" />
+          <img class="card-img-top" id="card-img" [src]="'./src/assets/img/memes/love.jpg'" alt="Card image cap" />
           <div class="card-body">
             <h5 class="card-title" data-ng-bind="card_title">You got a MATCH! <span class="hero-intro"><i
               class="fa fa-heart"></i></span></h5>
