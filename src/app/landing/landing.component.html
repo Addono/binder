@@ -14,7 +14,7 @@
                         <a rel="tooltip" ngbTooltip="We know you're a cheater." data-placement="bottom" title="We know you're a cheater." (click)="matchme()" class="btn btn-danger btn-round">Instant-Match!</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-danger btn-round">Matches: {{current_user.matches.length}}</a>
+                      <a [routerLink]="['/user-profile']" class="btn btn-danger btn-round">Matches: {{current_user.matches.length}}</a>
                     </li>
                 </ul>
             </div>
