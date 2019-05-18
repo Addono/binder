@@ -78,11 +78,10 @@
         <div class="row">
             <div class="mx-auto">
                 <div class="card" style="width: 25rem;" *ngIf="card_switcher('match')">
-                    <img class="card-img-top" id="card-img" src={{card_url}} alt="Card image cap">
+                    <img class="card-img-top" id="card-img" src="../../assets/img/memes/love.jpg" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title" data-ng-bind="card_title">Reply with your meme!</h5>
-                        <p class="card-text" data-ng-bind="card_text">Well, the title is kinda self-explanatory, but if you're reading this you're kinda stupid. SO.<br />
-                        I'll make it simple for you; do you see the nice input box below? SEE? OK. Put the URL of your meme. It should point to an image. OF COURSE. But you're stupid, better specify everything.
+                        <h5 class="card-title" data-ng-bind="card_title">You got a MATCH! <span class="hero-intro"><i class="fa fa-heart"></i></span></h5>
+                        <p class="card-text" data-ng-bind="card_text">{{current_user.userName}}, you matched with <span class="hero-intro">{{matched_user.userName}}!</span>
                         </p>
                         <form class="register-form">
                             <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
