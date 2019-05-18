@@ -22,4 +22,8 @@ export class ProfileComponent implements OnInit {
 
     ngOnInit() {}
 
+    openInNewTab(url) {
+      window.open(url, '_blank').focus();
+    }
+
 }
