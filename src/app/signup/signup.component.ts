@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { db } from '../../assets/db.js';
+
 
 @Component({
     selector: 'app-signup',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-    test : Date = new Date();
-    focus;
-    focus1;
-    constructor() { }
+
+    constructor() {
+        // console.log(db);
+    }
 
     ngOnInit() {}
+
+    route(userId) {
+        if (typeof(Storage) !== "undefined") {
+            localStorage.setItem("userId", userId);
+            window.location.href = '/landing';
+        } else {
+            alert('Storage not supported in this browser.');
+        }
+    }
 }
