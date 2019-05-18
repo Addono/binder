@@ -34,11 +34,12 @@ export class LandingComponent implements OnInit {
     // Retrieve from db for current user...
     // Initialize
     this.memes = dbs.db['memes'];
+    let memeIds = Object.keys(this.memes);
     let randomSelected;
     for (let i = 0; i <= this.max_swipes; i += 1) {
-      randomSelected = Math.floor(Math.random() * this.memes.length);
+      randomSelected = Math.floor(Math.random() * memeIds.length);
       this.memes_to_show[i] = this.memes[randomSelected];
-      this.memes = this.memes.filter((value, index, arr) => {
+      memeIds = memeIds.filter((value, index, arr) => {
         return index !== randomSelected;
       });
     }
