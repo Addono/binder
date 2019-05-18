@@ -82,6 +82,8 @@
                     <div class="card-body">
                         <h5 class="card-title" data-ng-bind="card_title">You got a MATCH! <span class="hero-intro"><i class="fa fa-heart"></i></span></h5>
                         <p class="card-text" data-ng-bind="card_text">{{current_user.userName}}, you matched with <span class="hero-intro">{{matched_user.userName}}!</span>
+                            <br /><br />
+                            Leave a message for them... If you want. I'm not a cop. Do whatever, my job is done here.
                         </p>
                         <form class="register-form">
                             <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
@@ -90,9 +92,9 @@
                                     <i class=""></i>
                                 </span>
                                 </div>
-                                <input id="memeURL" type="text" class="form-control" placeholder="Your meme-reply here..." (focus)="focus=true" (blur)="focus=false" >
+                                <input id="text" type="text" class="form-control" placeholder="Your message..." (focus)="focus=true" (blur)="focus=false" >
                             </div>
-                            <button (click)="updateMeme()" class="btn btn-danger btn-block btn-round">Check!</button>
+                            <button (click)="send_text()" class="btn btn-danger btn-block btn-round">Send!</button>
                         </form>
                         <br /><br />
                         <div>
