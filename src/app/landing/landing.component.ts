@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { db } from '../../assets/db.js';
+import {DatabaseService} from '../shared/database.service';
 
 @Component({
     selector: 'app-landing',
@@ -23,14 +23,17 @@ export class LandingComponent implements OnInit {
   memes = [];
   memes_to_show = [];
 
+
   show_reply_card: Boolean = false;
 
-  constructor() {
+
+  constructor(dbs: DatabaseService) {
+
     // Retrieve from db for current user...
     // Initialize
-    this.memes = db["memes"];
+    this.memes = dbs.db['memes'];
     let randomSelected;
-    for(let i = 0; i <= this.max_swipes; i += 1) {
+    for (let i = 0; i <= this.max_swipes; i += 1) {
       randomSelected = Math.floor(Math.random() * this.memes.length);
       this.memes_to_show[i] = this.memes[randomSelected];
       this.memes = this.memes.filter((value, index, arr) => {
@@ -41,7 +44,7 @@ export class LandingComponent implements OnInit {
     this.card_url = this.memes_to_show[this.curr_meme_index].url;
     this.card_title = this.memes_to_show[this.curr_meme_index].title;
     this.card_text = this.memes_to_show[this.curr_meme_index].text;
-    this.current_user = db[localStorage.getItem("userId")];
+    this.current_user = dbs.db[localStorage.getItem('userId')];
   }
 
   ngOnInit() {
@@ -87,7 +90,7 @@ export class LandingComponent implements OnInit {
   }
 
   clicked(what, to_switch) {
-    if(this.total_swipes === this.max_swipes) {
+    if (this.total_swipes === this.max_swipes) {
       alert('HEY! CALM DOWN. TIGER. You used all your swipes for today, come back tomorrow. Or another day. Whatever.');
       this.total_swipes = 0;
     }
@@ -100,8 +103,7 @@ export class LandingComponent implements OnInit {
     if (to_switch) {
       this.amount_of_consecutive_nope_given += 1;
       this.load_next();
-    }
-    else {
+    } else {
       this.amount_of_consecutive_nope_given = 0;
       this.reply();
     }

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { db } from '../../assets/db.js';
-
 
 @Component({
     selector: 'app-signup',
