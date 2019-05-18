@@ -122,14 +122,7 @@ var AppComponent = /** @class */ (function () {
         }
     };
     AppComponent.prototype.removeFooter = function () {
-        var titlee = this.location.prepareExternalUrl(this.location.path());
-        titlee = titlee.slice(1);
-        if (titlee === 'signup' || titlee === 'nucleoicons' || titlee === 'home' || titlee === 'landing') {
-            return false;
-        }
-        else {
-            return true;
-        }
+        return true;
     };
     AppComponent.prototype.removeNavbar = function () {
         var titlee = this.location.prepareExternalUrl(this.location.path());
@@ -1456,8 +1449,7 @@ var NavbarComponent = /** @class */ (function () {
         return this.location.isCurrentPathEqualTo('/home');
     };
     NavbarComponent.prototype.isDocumentation = function () {
-        var titlee = this.location.prepareExternalUrl(this.location.path());
-        return titlee.endsWith('/documentation');
+        return this.location.isCurrentPathEqualTo('/documentation');
     };
     NavbarComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1525,7 +1517,7 @@ var SignupComponent = /** @class */ (function () {
     SignupComponent.prototype.route = function (userId) {
         if (typeof (Storage) !== "undefined") {
             localStorage.setItem("userId", userId);
-            window.location.href = '/landing';
+            window.location.href = './landing';
         }
         else {
             alert('Storage not supported in this browser.');
