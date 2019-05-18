@@ -28,6 +28,8 @@ export class LandingComponent implements OnInit {
   show_meme_card: Boolean = true;
   show_match_card: Boolean = false;
 
+  matched_user = {};
+
 
   constructor(dbs: DatabaseService) {
 
@@ -48,6 +50,7 @@ export class LandingComponent implements OnInit {
     this.card_title = this.memes_to_show[this.curr_meme_index].title;
     this.card_text = this.memes_to_show[this.curr_meme_index].text;
     this.current_user = dbs.db[localStorage.getItem('userId')];
+    this.matched_user = dbs.db["3"];
   }
 
   ngOnInit() {
@@ -82,6 +85,9 @@ export class LandingComponent implements OnInit {
 
   matchme() {
     alert('CHEATER!');
+    this.show_match_card = true;
+    this.show_meme_card = false;
+    this.show_reply_card = false;
   }
 
   updateMeme() {
