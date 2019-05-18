@@ -1453,8 +1453,7 @@ var NavbarComponent = /** @class */ (function () {
     };
     ;
     NavbarComponent.prototype.isHome = function () {
-        var titlee = this.location.prepareExternalUrl(this.location.path());
-        return titlee.endsWith('/home');
+        return this.location.isCurrentPathEqualTo('/home');
     };
     NavbarComponent.prototype.isDocumentation = function () {
         var titlee = this.location.prepareExternalUrl(this.location.path());
