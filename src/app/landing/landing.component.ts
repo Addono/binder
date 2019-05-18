@@ -31,7 +31,7 @@ export class LandingComponent implements OnInit {
   matched_user = {};
 
 
-  constructor(dbs: DatabaseService) {
+  constructor(protected dbs: DatabaseService) {
 
     // Retrieve from db for current user...
     // Initialize
@@ -88,6 +88,8 @@ export class LandingComponent implements OnInit {
     this.show_match_card = true;
     this.show_meme_card = false;
     this.show_reply_card = false;
+    // this.dbs[localStorage.getItem('userId')].matches.push(this.matched_user);
+    this.current_user['matches'].push(this.matched_user.userId);
   }
 
   updateMeme() {
@@ -104,8 +106,6 @@ export class LandingComponent implements OnInit {
     this.card_title = this.memes_to_show[this.curr_meme_index].title;
     this.card_text = this.memes_to_show[this.curr_meme_index].text;
   }
-
-  
 
   reply() {
     alert('OK. You liked this one; now reply with your own memeeeeee.');
