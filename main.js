@@ -125,24 +125,7 @@ var AppComponent = /** @class */ (function () {
         return true;
     };
     AppComponent.prototype.removeNavbar = function () {
-        var titlee = this.location.prepareExternalUrl(this.location.path());
-        titlee = titlee.slice(1);
-        if (titlee === 'landing') {
-            return false;
-        }
-        else {
-            return true;
-        }
-    };
-    AppComponent.prototype.removeNavbarV2 = function () {
-        var titlee = this.location.prepareExternalUrl(this.location.path());
-        titlee = titlee.slice(1);
-        if (titlee === 'landing') {
-            return true;
-        }
-        else {
-            return true;
-        }
+        this.location.isCurrentPathEqualTo('landing');
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_shared_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_5__["NavbarComponent"]),
