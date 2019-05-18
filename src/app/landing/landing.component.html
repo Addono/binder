@@ -11,6 +11,9 @@
             <div class="navbar-collapse" id="navbarToggler">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
+                        <a rel="tooltip" ngbTooltip="We know you're a cheater." data-placement="bottom" title="We know you're a cheater." (click)="matchme()" class="btn btn-danger btn-round">Instant-Match!</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="btn btn-danger btn-round">Matches: {{current_user.matches.length}}</a>
                     </li>
                 </ul>
@@ -21,7 +24,7 @@
     <div class="container">
         <div class="row">
             <div class="mx-auto">
-                <div class="card" style="width: 25rem;" *ngIf="!visible()">
+                <div class="card" style="width: 25rem;" *ngIf="card_switcher('meme')">
                     <img class="card-img-top" id="card-img" src={{card_url}} alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title" data-ng-bind="card_title">{{card_title}}</h5>
@@ -41,7 +44,40 @@
         </div>
         <div class="row">
             <div class="mx-auto">
-                <div class="card" style="width: 25rem;" *ngIf="visible()">
+                <div class="card" style="width: 25rem;" *ngIf="card_switcher('reply')">
+                    <img class="card-img-top" id="card-img" src={{card_url}} alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title" data-ng-bind="card_title">Reply with your meme!</h5>
+                        <p class="card-text" data-ng-bind="card_text">Well, the title is kinda self-explanatory, but if you're reading this you're kinda stupid. SO.<br />
+                        I'll make it simple for you; do you see the nice input box below? SEE? OK. Put the URL of your meme. It should point to an image. OF COURSE. But you're stupid, better specify everything.
+                        </p>
+                        <form class="register-form">
+                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                                <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class=""></i>
+                                </span>
+                                </div>
+                                <input id="memeURL" type="text" class="form-control" placeholder="Your meme-reply here..." (focus)="focus=true" (blur)="focus=false" >
+                            </div>
+                            <button (click)="updateMeme()" class="btn btn-danger btn-block btn-round">Check!</button>
+                        </form>
+                        <br /><br />
+                        <div>
+                            <a rel="tooltip" ngbTooltip="LET MEE OUUUUT! (Cancel)" title="LET MEE OUUUUT! (Cancel)" data-placement="bottom" (click)="abort()" style="cursor: pointer" class="text-danger"><i class="fa fa-ban fa-4x"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a rel="tooltip" ngbTooltip="THIS. IS. AWESOME. (Send it)" title="THIS. IS. AWESOME. (Send it)" data-placement="bottom" (click)="send_reply()" style="cursor: pointer" class="text-success"><i data-toggle="modal" data-target="#myModal1" class="fa fa-check-circle fa-4x"></i></a>
+                        </div>
+                        <br />
+                        <div class="text-center">
+                            <small>Are you still reading? MOVE ON.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mx-auto">
+                <div class="card" style="width: 25rem;" *ngIf="card_switcher('match')">
                     <img class="card-img-top" id="card-img" src={{card_url}} alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title" data-ng-bind="card_title">Reply with your meme!</h5>

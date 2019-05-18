@@ -25,6 +25,8 @@ export class LandingComponent implements OnInit {
 
 
   show_reply_card: Boolean = false;
+  show_meme_card: Boolean = true;
+  show_match_card: Boolean = false;
 
 
   constructor(dbs: DatabaseService) {
@@ -51,12 +53,38 @@ export class LandingComponent implements OnInit {
 
   }
 
-  visible() {
-    return this.show_reply_card;
+  card_switcher(which) {
+    switch(which) {
+      case 'meme': 
+        if (this.show_reply_card || this.show_match_card) {
+          return false;
+        } else {
+          return true;
+        }
+        break;
+      case 'reply':
+        if (this.show_meme_card || this.show_match_card) {
+          return false;
+        } else {
+          return true;
+        }
+        break;
+      case 'match':
+        if (this.show_reply_card || this.show_meme_card) {
+          return false;
+        } else {
+          return true;
+        }
+        break;
+    }
+  }
+
+  matchme() {
+    alert('CHEATER!');
   }
 
   updateMeme() {
-    let url = document.getElementById('memeURL').value;
+    let url = (<HTMLInputElement>document.getElementById('memeURL')).value;
     this.card_url = url;
   }
 
@@ -75,11 +103,15 @@ export class LandingComponent implements OnInit {
   reply() {
     alert('OK. You liked this one; now reply with your own memeeeeee.');
     this.show_reply_card = true;
+    this.show_match_card = false;
+    this.show_meme_card = false;
   }
 
   send_reply() {
     alert('Reply SENT! GOOD JOB SOLDIER.');
     this.show_reply_card = false;
+    this.show_match_card = false;
+    this.show_meme_card = true;
     this.load_next();
   }
 
@@ -99,7 +131,6 @@ export class LandingComponent implements OnInit {
       alert('JUMALAUTA! MAN YOU MUST LIKE SOMEBODY\'S MEME AT A CERTAIN POINT!')
       this.amount_of_consecutive_nope_given = 0;
     }
-    alert(what)
     if (to_switch) {
       this.amount_of_consecutive_nope_given += 1;
       this.load_next();
