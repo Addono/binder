@@ -18,7 +18,6 @@ export class ProfileComponent implements OnInit {
       this.matches = matchIds.map(id => {
         return dbs.db[id];
       });
-//         this.matches = dbs.db[localStorage.getItem('userId')]['matches'];
     }
 
     ngOnInit() {}
