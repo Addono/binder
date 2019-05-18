@@ -1,12 +1,12 @@
 export const rootDb = {
   memes: {
     0: {
-      url: 'assets/img/memes/meme1.jpg',
+      url: 'https://i.imgur.com/ICQviKd.jpg',
       title: 'Whadya think about my meme?',
       text: 'The user can chose this text, and yes I typed this randomly, cause I don\'t like lorem. IPSUM.',
     },
     1: {
-      url: 'assets/img/memes/meme2.jpg',
+      url: 'https://i.imgur.com/tr3YDla.jpg',
       title: 'I like... Teletubbies... Hen.. HMMM?',
       text: 'The user can chose this text, and yes I typed this randomly, cause I don\'t like lorem. IPSUM.',
     },
