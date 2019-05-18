@@ -83,6 +83,10 @@ export class LandingComponent implements OnInit {
     }
   }
 
+  send_text() {
+    alert((<HTMLInputElement>document.getElementById('text')).value);
+  }
+
   matchme() {
     alert('CHEATER!');
     this.show_match_card = true;
