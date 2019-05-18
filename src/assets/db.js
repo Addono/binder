@@ -77,6 +77,7 @@ export const rootDb = {
   "0": {
     userId: 0,
     userName: "Federico",
+	gen: 0,
     userMeme: [
       {
         id: 1,
@@ -91,10 +92,11 @@ export const rootDb = {
   "1": {
     userId: 1,
     userName: "Marios",
+	gen: 0,
     userMeme: [
       {
         id: 4,
-        url: 'assets/img/memes/fakhj7o7eaaz.jpg',
+        url: 'https://i.redd.it/fakhj7o7eaaz.jpg',
         title: 'Whadya think about my meme?',
         text: 'The user can chose this text, and yes I typed this randomly, cause I don\'t like lorem. IPSUM.',
       },
@@ -105,10 +107,56 @@ export const rootDb = {
   "2": {
     userId: 2,
     userName: "Adriaan",
+	gen: 0,
     userMeme: [
       {
         id: 6,
-        url: 'assets/img/memes/312pi1.jpg',
+        url: 'https://i.imgflip.com/312pi1.jpg',
+        title: 'Whadya think about my meme?',
+        text: 'The user can chose this text, and yes I typed this randomly, cause I don\'t like lorem. IPSUM.',
+      },
+    ],
+    liked_meme: [],
+    matches: [],
+  },
+  "3": {
+    userId: 3,
+    userName: "Elena",
+	gen: 1,
+    userMeme: [
+      {
+        id: 3,
+        url: 'https://www.tampabay.com/storyimage/HI/20150107/ARTICLE/301079512/AR/0/AR-301079512.jpg&MaxW=1200&Q=66',
+        title: 'Whadya think about my meme?',
+        text: 'The user can chose this text, and yes I typed this randomly, cause I don\'t like lorem. IPSUM.',
+      },
+    ],
+    liked_meme: [],
+    matches: [],
+  },
+  "4": {
+    userId: 4,
+    userName: "Veera",
+	gen: 1,
+    userMeme: [
+      {
+        id: 5,
+        url: 'https://i.imgflip.com/3179kg.jpg',
+        title: 'Whadya think about my meme?',
+        text: 'The user can chose this text, and yes I typed this randomly, cause I don\'t like lorem. IPSUM.',
+      },
+    ],
+    liked_meme: [],
+    matches: [],
+  },
+  "5": {
+    userId: 5,
+    userName: "Maria",
+	gen: 1,
+    userMeme: [
+      {
+        id: 1,
+        url: 'assets/img/memes/meme2.jpg',
         title: 'Whadya think about my meme?',
         text: 'The user can chose this text, and yes I typed this randomly, cause I don\'t like lorem. IPSUM.',
       },
