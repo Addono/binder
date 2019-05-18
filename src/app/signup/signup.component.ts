@@ -16,7 +16,7 @@ export class SignupComponent implements OnInit {
     route(userId) {
         if (typeof(Storage) !== "undefined") {
             localStorage.setItem("userId", userId);
-            window.location.href = '/landing';
+            // window.location.href = './landing';
         } else {
             alert('Storage not supported in this browser.');
         }

@@ -8,8 +8,8 @@ import {DatabaseService} from '../shared/database.service';
 })
 
 export class ProfileComponent implements OnInit {
-    private matches: Array<Object> = [];
-    private memes: Array<Object>;
+    public matches: Array<Object> = [];
+    public memes: Array<Object>;
 
     constructor(dbs: DatabaseService) {
       this.memes = dbs.db['memes'];

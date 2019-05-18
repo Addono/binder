@@ -9605,7 +9605,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\FEDEM\Desktop\binder-master\src\polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! C:\Users\Adriaan_2\Programming\binder\src\polyfills.ts */"./src/polyfills.ts");
 
 
 /***/ })
