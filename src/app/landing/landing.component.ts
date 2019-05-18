@@ -23,6 +23,8 @@ export class LandingComponent implements OnInit {
   memes = [];
   memes_to_show = [];
 
+  show_reply_card: Boolean = false;
+
   constructor() {
     // Retrieve from db for current user...
     // Initialize
@@ -46,6 +48,15 @@ export class LandingComponent implements OnInit {
 
   }
 
+  visible() {
+    return this.show_reply_card;
+  }
+
+  updateMeme() {
+    let url = document.getElementById('memeURL').value;
+    this.card_url = url;
+  }
+
   load_next() {
     this.curr_meme_index += 1;
     if (this.curr_meme_index >= this.memes_to_show.length) {
@@ -56,8 +67,23 @@ export class LandingComponent implements OnInit {
     this.card_text = this.memes_to_show[this.curr_meme_index].text;
   }
 
+  
+
   reply() {
     alert('OK. You liked this one; now reply with your own memeeeeee.');
+    this.show_reply_card = true;
+  }
+
+  send_reply() {
+    alert('Reply SENT! GOOD JOB SOLDIER.');
+    this.show_reply_card = false;
+    this.load_next();
+  }
+
+  abort() {
+    alert('You... Canceled it?!? For real? Yeah, for real, too late now, lost your possible match. Fuck you.');
+    this.show_reply_card = false;
+    this.load_next();
   }
 
   clicked(what, to_switch) {

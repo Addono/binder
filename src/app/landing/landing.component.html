@@ -21,17 +21,15 @@
     <div class="container">
         <div class="row">
             <div class="mx-auto">
-                <div class="card" style="width: 25rem;">
+                <div class="card" style="width: 25rem;" *ngIf="!visible()">
                     <img class="card-img-top" id="card-img" src={{card_url}} alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title" data-ng-bind="card_title">{{card_title}}</h5>
                         <p class="card-text" data-ng-bind="card_text">{{card_text}}</p>
                         <br /><br />
                         <div>
-                            <!--<a (click)="clicked('nope :(', true)" class="btn btn-danger"><i class="fa fa-ban"></i>&nbsp;Bleahhh</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
                             <a rel="tooltip" ngbTooltip="Nope, next." title="Nope, next." data-placement="bottom" (click)="clicked('nope :(', true)" style="cursor: pointer" class="text-danger"><i class="fa fa-ban fa-4x"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <!--<a (click)="clicked('yep ;)', false)" class="btn btn-success"><i class="fa fa-check-circle"></i>&nbsp;I love it!!</a>-->
-                            <a data-toggle="modal" data-target="#myModal1" rel="tooltip" ngbTooltip="Yep, I like this one ;)" title="Yep, I like this one ;)" data-placement="bottom" (click)="clicked('yep ;)', false)" style="cursor: pointer" class="text-success"><i class="fa fa-check-circle fa-4x"></i></a>
+                            <a rel="tooltip" ngbTooltip="Yep, I like this one ;)" title="Yep, I like this one ;)" data-placement="bottom" (click)="clicked('yep ;)', false)" style="cursor: pointer" class="text-success"><i data-toggle="modal" data-target="#myModal1" class="fa fa-check-circle fa-4x"></i></a>
                         </div>
                         <br />
                         <div class="text-center">
@@ -39,20 +37,36 @@
                         </div>
                     </div>
                 </div>
-                <div id="myModal1" class="modal fade" role="dialog">
-                    <div class="modal-dialog">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Modal Header</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mx-auto">
+                <div class="card" style="width: 25rem;" *ngIf="visible()">
+                    <img class="card-img-top" id="card-img" src={{card_url}} alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title" data-ng-bind="card_title">Reply with your meme!</h5>
+                        <p class="card-text" data-ng-bind="card_text">Well, the title is kinda self-explanatory, but if you're reading this you're kinda stupid. SO.<br />
+                        I'll make it simple for you; do you see the nice input box below? SEE? OK. Put the URL of your meme. It should point to an image. OF COURSE. But you're stupid, better specify everything.
+                        </p>
+                        <form class="register-form">
+                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                                <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class=""></i>
+                                </span>
+                                </div>
+                                <input id="memeURL" type="text" class="form-control" placeholder="Your meme-reply here..." (focus)="focus=true" (blur)="focus=false" >
                             </div>
-                            <div class="modal-body">
-                            <p>Some text in the modal.</p>
-                            </div>
-                            <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
+                            <button (click)="updateMeme()" class="btn btn-danger btn-block btn-round">Check!</button>
+                        </form>
+                        <br /><br />
+                        <div>
+                            <a rel="tooltip" ngbTooltip="LET MEE OUUUUT! (Cancel)" title="LET MEE OUUUUT! (Cancel)" data-placement="bottom" (click)="abort()" style="cursor: pointer" class="text-danger"><i class="fa fa-ban fa-4x"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a rel="tooltip" ngbTooltip="THIS. IS. AWESOME. (Send it)" title="THIS. IS. AWESOME. (Send it)" data-placement="bottom" (click)="send_reply()" style="cursor: pointer" class="text-success"><i data-toggle="modal" data-target="#myModal1" class="fa fa-check-circle fa-4x"></i></a>
+                        </div>
+                        <br />
+                        <div class="text-center">
+                            <small>Are you still reading? MOVE ON.</small>
                         </div>
                     </div>
                 </div>
@@ -60,6 +74,7 @@
         </div>
     </div>
 </div>
+
 <!--
 <div class="main">
     <div class="section text-center">
