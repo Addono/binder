@@ -125,7 +125,7 @@ var AppComponent = /** @class */ (function () {
         return true;
     };
     AppComponent.prototype.removeNavbar = function () {
-        this.location.isCurrentPathEqualTo('landing');
+        return this.location.isCurrentPathEqualTo('landing');
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_shared_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_5__["NavbarComponent"]),
