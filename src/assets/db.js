@@ -90,10 +90,10 @@ export const db = {
   },
   "1": {
     userId: 1,
-    userName: "Adriaan",
+    userName: "Marios",
     userMeme: [
       {
-        id: 2,
+        id: 4,
         url: 'assets/img/memes/fakhj7o7eaaz.jpg',
         title: 'Whadya think about my meme?',
         text: 'The user can chose this text, and yes I typed this randomly, cause I don\'t like lorem. IPSUM.',
@@ -104,10 +104,10 @@ export const db = {
   },
   "2": {
     userId: 2,
-    userName: "Marios",
+    userName: "Adriaan",
     userMeme: [
       {
-        id: 3,
+        id: 6,
         url: 'assets/img/memes/312pi1.jpg',
         title: 'Whadya think about my meme?',
         text: 'The user can chose this text, and yes I typed this randomly, cause I don\'t like lorem. IPSUM.',
