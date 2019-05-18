@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar *ngIf=\"removeNavbar()\"></app-navbar>\r\n<router-outlet></router-outlet>\r\n<app-footer *ngIf=\"removeFooter()\"></app-footer>\r\n"
+module.exports = "<app-navbar *ngIf=\"!removeNavbar()\"></app-navbar>\r\n<router-outlet></router-outlet>\r\n<app-footer *ngIf=\"!removeFooter()\"></app-footer>\r\n"
 
 /***/ }),
 
@@ -125,7 +125,7 @@ var AppComponent = /** @class */ (function () {
         return true;
     };
     AppComponent.prototype.removeNavbar = function () {
-        return this.location.isCurrentPathEqualTo('landing');
+        return this.location.isCurrentPathEqualTo('/landing');
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_shared_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_5__["NavbarComponent"]),
